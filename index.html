@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visor 3D Producto</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .tarjeta-3d-producto {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 25px;
+      width: 100%;
+      max-width: 1000px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eef0f2;
+    }
+
+    .visor-3d {
+      flex: 1;
+      width: 100%;
+      height: 400px;
+      background: radial-gradient(circle, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    model-viewer {
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+    }
+
+    .indicador-interaccion {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(4px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #444444;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      pointer-events: none;
+    }
+
+    .info-producto {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .etiqueta-destacada {
+      font-size: 11px;
+      font-weight: 800;
+      color: #0066ff;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .info-producto h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #111111;
+      margin: 0 0 12px 0;
+      line-height: 1.2;
+    }
+
+    .info-producto p {
+      font-size: 14px;
+      color: #555555;
+      line-height: 1.5;
+      margin-bottom: 18px;
+    }
+
+    .lista-caracteristicas {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+
+    .lista-caracteristicas li {
+      font-size: 13px;
+      color: #333333;
+      margin-bottom: 8px;
+    }
+
+    .boton-compra-3d {
+      display: inline-block;
+      padding: 12px 26px;
+      background: #0066ff;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 13px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .boton-compra-3d:hover {
+      background: #0052cc;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 102, 255, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .tarjeta-3d-producto {
+        flex-direction: column;
+        padding: 18px;
+      }
+
+      .visor-3d {
+        height: 280px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="tarjeta-3d-producto">
+  <div class="visor-3d">
+    <model-viewer 
+      src="https://cdn.jsdelivr.net/gh/valentino9021-png/valen@main/posture_corrector_3d_model_comprimido.glb" 
+      alt="Modelo 3D del producto"
+      camera-controls 
+      auto-rotate 
+      shadow-intensity="1" 
+      exposure="1"
+      interaction-prompt="auto">
+    </model-viewer>
+    <div class="indicador-interaccion">🖱️ Arrastrá para girar 360°</div>
+  </div>
+
+  <div class="info-producto">
+    <span class="etiqueta-destacada">VISTA INTERACTIVA 3D</span>
+    <h2>Corrector de Postura</h2>
+    <p>
+      Mové el modelo 3D con el mouse o con tu dedo para inspeccionar la calidad, acabados y cada detalle de nuestro producto en tiempo real.
+    </p>
+
+    <ul class="lista-caracteristicas">
+      <li><strong>Diseño:</strong> Ergonómico y pensado para el uso diario</li>
+      <li><strong>Material:</strong> Estructura reforzada de alta duración</li>
+      <li><strong>Garantía:</strong> Cobertura oficial directa de fábrica</li>
+    </ul>
+
+    <a href="#" class="boton-compra-3d">COMPRAR AHORA</a>
+  </div>
+</div>
+
+</body>
+</html>
